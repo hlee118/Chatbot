@@ -1,16 +1,15 @@
-# Dobby
+# GroupChatbot
 
-## Proposer/Member
- 이현식 / 안재훈
+## Proposer
+ Hyunsik Lee
 
-## Overview
-Let me introduce Dobby which is question-answering system. Ask Dobby anything. He'll let you know everything he knows.
+## Project Goal
+A group chatbot system with variety of characteristics
+
 
 ## Motivation
-When you need information, you will ask someone you know or look up websites. However, information is fragmented, and it’s hard to say that our acquaintance knows everything. Therefore, we have decided to make question-answering system that can answer about everything through voice format.
+There are many chatbot systems, but they are not flexible in dealing with various situations. Besides, they can’t respond to every question because they are built on a rule/knowledge basis. I would suggest creating a machine learning-based group chatbot system which can answer to every question from their own perspectives, and user can decide final decision with the various comments.
 
 ## Main difference from existing product/solutions
--	Integrated information which can be easily accessed by users, including people with the disabled
--	The ability to know especially about information that university students want to know.
--	Improved Korean Natural Language Processing
--	Improved Information Retrieval
+-	Improved natural language processing ability through new neural network models such as transformer model
+-	Characteristic various models
