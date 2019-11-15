@@ -4,7 +4,6 @@
 */
 
 // modules
-let lang = require("../lang/kr");
 let {PythonShell} = require('python-shell');
 let os = require('os');
 
