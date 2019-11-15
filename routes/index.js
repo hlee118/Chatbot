@@ -1,5 +1,6 @@
 let express = require('express');
 let router = express.Router();
+let request = require('request');
 let analyzer_path = require('path').join(__dirname, "../analyzerKR/analyzer");
 let dobby_path = require('path').join(__dirname, "../kr_dobby/index");
 let wiki_path = require('path').join(__dirname, "../kr_wiki/index");
@@ -47,6 +48,21 @@ router.post('/', (req, res) => {
         res.send(response);
         console.log(response);
     })
+});
+
+router.post('/seq2seq', (req, res) => {
+    let query = req.body.query;
+    const options = {
+        uri:'http://127.0.0.1:5000/',
+        method: 'POST',
+        form: {
+            query:query,
+        }
+    }
+
+    request(options, function (error, response, body) {
+        res.send(response.body);
+    });
 });
 
 module.exports = router;
