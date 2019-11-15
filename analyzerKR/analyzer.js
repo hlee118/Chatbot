@@ -13,11 +13,11 @@ class Analyzer {
             mode: 'text',
             pythonPath: '',
             pythonOptions: ['-u'],
-            scriptPath: '/home/ubuntu/Dobby/analyzerKR',
+            scriptPath: '/home/ubuntu/`Chatbot`/analyzerKR',
         };
 
         if (os.type() == "Windows_NT") {
-            shell_options.scriptPath = "C:/Users/Lee/Documents/Dobby/analyzerKR";
+            shell_options.scriptPath = "C:/Users/Lee/Documents/Chatbot/analyzerKR";
         }
     }
 

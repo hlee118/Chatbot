@@ -18,11 +18,11 @@ class Wiki{
             mode: 'text',
             pythonPath: '',
             pythonOptions: ['-u'],
-            scriptPath: '/home/ubuntu/Dobby/kr_wiki',
+            scriptPath: '/home/ubuntu/Chatbot/kr_wiki',
         };
 
         if (os.type() == "Windows_NT") {
-            shell_options.scriptPath = "C:/Users/Lee/Documents/Dobby/kr_wiki";
+            shell_options.scriptPath = "C:/Users/Lee/Documents/Chatbot/kr_wiki";
         }
     }
 
