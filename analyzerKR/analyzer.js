@@ -13,7 +13,7 @@ class Analyzer {
             mode: 'text',
             pythonPath: '',
             pythonOptions: ['-u'],
-            scriptPath: '/home/ubuntu/`Chatbot`/analyzerKR',
+            scriptPath: '/home/ubuntu/Chatbot/analyzerKR',
         };
 
         if (os.type() == "Windows_NT") {
