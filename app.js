@@ -7,7 +7,6 @@ let https = require('https');
 var cors = require('cors');
 const fs = require('fs');
 let port = 80;
-let dialogflow = require('./dialogflow')
 
 // routers path
 let indexRouter = require('./routes/index');
@@ -29,7 +28,6 @@ app.all('/*', function(req, res, next) {
 });
 
 // router
-app.post('/fulfillment', dialogflow)
 app.use('/', indexRouter)
 
 // catch 404 and forward to error handler
