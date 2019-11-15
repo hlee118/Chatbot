@@ -11,7 +11,7 @@
     // TODO 주어 목적어 서술어...
 */
 
-let db_path = require('path').join(__dirname, "../lib/db");
+let db_path = require('path').join(__dirname, "../lib/db.js");
 let mysql = require('mysql');
 let db_info = require(db_path);
 const { exec } = require('child_process');
