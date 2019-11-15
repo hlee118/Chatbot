@@ -49,12 +49,4 @@ router.post('/', (req, res) => {
     })
 });
 
-router.get('/test', (req, res) => {
-	console.log("DDD");
-	res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-    res.header('Content-Type', "application/x-www-form-urlencoded");
-    res.send({result:"ASD"});
-});
-
 module.exports = router;

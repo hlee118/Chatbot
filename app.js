@@ -6,17 +6,11 @@ let bodyParser = require('body-parser');
 let https = require('https');
 var cors = require('cors');
 const fs = require('fs');
-// const options = {
-//     key: fs.readFileSync('./https/privkey.pem'),
-//     cert: fs.readFileSync('./https/cert.pem')
-// };
-// let server = https.createServer(options, app)
 let port = 80;
 let dialogflow = require('./dialogflow')
 
 // routers path
 let indexRouter = require('./routes/index');
-let pageRouter = require('./routes/page');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,7 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
 app.all('/*', function(req, res, next) {
-	console.log("ASD");
 	  res.header("Access-Control-Allow-Origin", "*");
 	  res.header("Access-Control-Allow-Headers", "X-Requested-With");
 	  res.header("Content-Type", "application/x-www-form-urlencoded");
@@ -38,16 +31,11 @@ app.all('/*', function(req, res, next) {
 // router
 app.post('/fulfillment', dialogflow)
 app.use('/', indexRouter)
-// app.use('/page', pageRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     res.status(404).send('Sorry cant find that!');
 });
-
-// server.listen(port);
-// server.on('error', onError);
-// server.on('listening', onListening);
 
 app.listen(port);
 app.on('error', onError);

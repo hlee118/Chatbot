@@ -31,7 +31,7 @@ class Dobby{
         return new Promise((resolve)=>{
             // Get data from database
             const connection = mysql.createConnection(db_info);
-            const SQLQuery = "SELECT * FROM dobby_q";
+            const SQLQuery = "SELECT * FROM dobby";
             connection.connect((err)=>{if (err) throw err;});
             connection.query(SQLQuery, function(err, rows, fields) {
                 if (err) throw err;
