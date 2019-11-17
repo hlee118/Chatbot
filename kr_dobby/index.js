@@ -42,7 +42,7 @@ class Dobby{
         .then((rows)=>{
             for(let i=0;i<rows.length;i++){
                 // this.docs.push(rows[i].noun.split(" "));
-                this.docs.push(rows[i].words);
+                this.docs.push(rows[i].question);
                 this.answers.push(rows[i].answer);
             }
 
@@ -67,7 +67,7 @@ class Dobby{
 
             let answer = this.answers[index];
             if(index == -1)
-                answer = "정답을 모르겠습니다";
+                answer = "다시 말씀해주세요.";
 
             return [answer, max_similarity]
         });
