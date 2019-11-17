@@ -26,7 +26,7 @@ router.post('/dobby', (req, res) => {
             const answer = dobby_res[0];
             const accuracy = dobby_res[1];
             console.log({question:query, answer:answer, accuracy:accuracy});
-            res.send(answer);
+            res.send({answer:answer});
         });
     });
 });
@@ -45,7 +45,7 @@ router.post('/wiki', (req, res) => {
     request(options, function (error, response, body) {
         const answer = response.body;
         console.log({question:query, answer:answer, accuracy:0});
-        res.send(answer);
+        res.send({answer:answer});
     });
 });
 
@@ -62,7 +62,7 @@ router.post('/seq2seq', (req, res) => {
     request(options, function (error, response, body) {
         const answer = response.body;
         console.log({question:query, answer:answer, accuracy:0});
-        res.send(answer);
+        res.send({answer:answer});
     });
 });
 
