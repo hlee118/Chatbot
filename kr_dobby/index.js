@@ -1,14 +1,6 @@
 /*
     Made by Hyunsik Lee
     2019-05-01
-
-    <Theory>
-    1. Part of Speech Tagging
-    2. Cosine smilarity
-
-    // TODO 명사 동사 형용사 비교
-    // TODO 명사구 동사구 형용사구에 대해서 우선도 높게
-    // TODO 주어 목적어 서술어...
 */
 
 let db_path = require('path').join(__dirname, "../lib/db.js");
@@ -23,11 +15,11 @@ function max(a, b){
 
 class Dobby{
     constructor() {
-        this.docs = new Array();
+        this.question = new Array();
         this.answers = new Array();
     }
 
-    ask(POSTResult) {
+    ask(morphs) {
         return new Promise((resolve)=>{
             // Get data from database
             const connection = mysql.createConnection(db_info);
@@ -41,20 +33,19 @@ class Dobby{
         })
         .then((rows)=>{
             for(let i=0;i<rows.length;i++){
-                // this.docs.push(rows[i].noun.split(" "));
-                this.docs.push(rows[i].question);
+                this.question.push(rows[i].prep_question);
                 this.answers.push(rows[i].answer);
             }
 
-            // similarity
+            // Similarity
             let max_similarity = 0
             let index = -1;
-            const words_length = POSTResult.length;
-            for(let i=0;i<this.docs.length;i++){
-                const doc = this.docs[i];
+            const words_length = morphs.length;
+            for(let i=0;i<this.question.length;i++){
+                const doc = this.question[i];
                 let count = 0
                 for(let j=0;j<words_length;j++){
-                    if(doc.includes(POSTResult[j])){
+                    if(doc.includes(morphs[j])){
                         count ++;
                     }
                 }

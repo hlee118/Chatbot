@@ -9,19 +9,17 @@ let Wiki = require(wiki_path);
 router.post('/dobby', (req, res) => {
     let query = req.body.query;
     const options = {
-        uri:'http://127.0.0.1:5000/nouns',
+        uri:'http://127.0.0.1:5000/morphs',
         method: 'POST',
-        form: {
-            query:query,
-        }
+        form: {query:query}
     }
 
     request(options, function (error, response, body) {
-        let nouns = response.body;
-        nouns = nouns.split(' ');
+        let morphs = response.body;
+        morphs = morphs.split(' ');
 
         let dobby = new Dobby();
-        dobby.ask(nouns)
+        dobby.ask(morphs)
         .then((dobby_res)=>{
             const answer = dobby_res[0];
             const accuracy = dobby_res[1];
