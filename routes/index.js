@@ -1,29 +1,19 @@
 let express = require('express');
 let router = express.Router();
 let request = require('request');
-let dobby_path = require('path').join(__dirname, "../kr_dobby/index");
-let Dobby = require(dobby_path);
 
 router.post('/dobby', (req, res) => {
     let query = req.body.query;
     const options = {
-        uri:'http://127.0.0.1:5000/morphs',
+        uri:'http://127.0.0.1:5000/dobby',
         method: 'POST',
         form: {query:query}
     }
 
     request(options, function (error, response, body) {
-        let morphs = response.body;
-        morphs = morphs.split(' ');
-
-        let dobby = new Dobby();
-        dobby.ask(morphs)
-        .then((dobby_res)=>{
-            const answer = dobby_res[0];
-            const accuracy = dobby_res[1];
-            console.log({question:query, answer:answer, accuracy:accuracy});
-            res.send({answer:answer});
-        });
+        const answer = response.body;
+        console.log({question:query, answer:answer, accuracy:0});
+        res.send({answer:answer});
     });
 });
 
