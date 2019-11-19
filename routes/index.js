@@ -2,9 +2,7 @@ let express = require('express');
 let router = express.Router();
 let request = require('request');
 let dobby_path = require('path').join(__dirname, "../kr_dobby/index");
-let wiki_path = require('path').join(__dirname, "../kr_wiki/index");
 let Dobby = require(dobby_path);
-let Wiki = require(wiki_path);
 
 router.post('/dobby', (req, res) => {
     let query = req.body.query;
